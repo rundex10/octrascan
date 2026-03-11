@@ -1,0 +1,22 @@
+# -------------------------------------------------
+# Build – no compilation, just copy the files
+# -------------------------------------------------
+[build]
+  publish = "."          # root of the repo is the publish folder
+
+# -------------------------------------------------
+# SPA fallback – every unknown path serves index.html
+# -------------------------------------------------
+[[redirects]]
+  from = "/*"
+  to   = "/index.html"
+  status = 200
+
+# -------------------------------------------------
+# Optional nice shortcut: /rpc → function
+# -------------------------------------------------
+[[redirects]]
+  from = "/rpc"
+  to   = "/.netlify/functions/rpc-proxy"
+  status = 200
+  force = true
